@@ -6,6 +6,14 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 
+
+# Load external boutique CSS
+def load_css(file_name: str = "style.css"):
+    with open(file_name, "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_css("style.css")
+
 # Optional ollama import with graceful fallback to raw HTTP requests
 try:
     import ollama
